@@ -1,0 +1,148 @@
+package com.company;
+import java.util.Scanner;
+import java.util.Random;
+
+public class Main {
+
+    public static void main(String[] args) {
+        System.out.println("Dobrodošli u igru pogađanja brojeva!!!");
+        System.out.println("============================================");
+        System.out.println("Odaberite level 0. , 1. ili 2.");
+        Scanner unos_levela = new Scanner(System.in);
+        int level = unos_levela.nextInt();
+        int broj_pokusaja = 0;
+        int uneseni_broj = 0;
+
+        System.out.println("Želite li hint [da/ne]");
+        Scanner unos_hinta = new Scanner(System.in);
+        String hint = unos_hinta.next();
+        Random rand = new Random();
+        int tocan_broj0 = rand.nextInt(10);
+        int tocan_broj1 = rand.nextInt(50);
+        int tocan_broj2 = rand.nextInt(100);
+        //int ledeno0 = 5;     int ledeno1 = 20;     int ledeno2 = 50;
+        //int toplo0 = 2;      int toplo1 = 5;      int toplo3 = 15;
+        //int vruce0 = 1;      int vruce1 = 3;      int vruce3 = 5;
+        int razlika=Math.abs(uneseni_broj - tocan_broj0);
+
+
+
+        do {
+            System.out.println("Unesite broj koji mislite da će biti izvućen, sigurno će te faliti:");
+            Scanner unos = new Scanner(System.in);
+            uneseni_broj = unos.nextInt();
+            switch (level) {
+                case 0:
+                    if (uneseni_broj != tocan_broj0) {
+                        broj_pokusaja++;
+                        System.out.println("Falili ste broj, pokušajte ponovo!");
+
+                    }
+                    else if(hint.toLowerCase().equals("da")&&uneseni_broj != tocan_broj0)
+                    {
+                        if(razlika > 3)
+                        {
+                            System.out.println("Hladno");
+                        }
+                        if(razlika <=3 && razlika>2)
+                        {
+                        System.out.println("Hladno");
+                        }
+                        if(razlika<=2 && razlika>1)
+                        {
+                            System.out.println("Toplo");
+                        }
+                        if(razlika<=1)
+                        {
+                            System.out.println("Vruce");
+                        }
+                    }
+                    else if(hint.toLowerCase().equals("ne"))
+                    {
+
+                    }
+                    else {
+                        System.out.println("Odlično pogodili ste, šteta što ovo nije prava lutrija!");
+                        System.out.println("Broj pokušaja je: " + broj_pokusaja);
+                        return;
+                    }
+                    break;
+
+                case 1:
+                    if (uneseni_broj != tocan_broj1) {
+                        broj_pokusaja++;
+                        System.out.println("Falili ste broj, pokušajte ponovo!");
+                    }
+                    else if(hint.toLowerCase().equals("da") && uneseni_broj != tocan_broj1)
+                    {
+                        if(razlika > 13);
+                        {
+                            System.out.println("Ledeno");
+                        }
+                        if(razlika <=13 && razlika>8)
+                        {
+                            System.out.println("Hladno");
+                        }
+                        if(razlika<=8 && razlika>4)
+                        {
+                            System.out.println("Toplo");
+                        }
+                        if(razlika<=4)
+                        {
+                            System.out.println("Vruce");
+                        }
+                    }
+                    else if(hint.toLowerCase().equals("ne"))
+                    {
+
+                    }
+                    else {
+
+                        System.out.println("Odlično pogodili ste, šteta što ovo nije prava lutrija!");
+                        System.out.println("Broj pokušaja je: " + broj_pokusaja);
+                        return;
+                    }
+                    break;
+
+                case 2:
+                    if (uneseni_broj != tocan_broj2) {
+                        broj_pokusaja++;
+                        System.out.println("Falili ste broj, pokušajte ponovo!");
+                    }
+                    else if(hint.toLowerCase().equals("da")&&uneseni_broj != tocan_broj2)
+                    {
+                        if(razlika > 50);
+                        {
+                            System.out.println("Ledeno");
+                        }
+                        if(razlika <=20 && razlika>50)
+                        {
+                            System.out.println("Hladno");
+                        }
+                        if(razlika<=20 && razlika>10)
+                        {
+                            System.out.println("Toplo");
+                        }
+                        if(razlika<=10)
+                        {
+                            System.out.println("Vruce");
+                        }
+                    }
+                    else if(hint.toLowerCase().equals("ne"))
+                    {
+
+                    }
+                    else {
+                        System.out.println("Odlično pogodili ste, šteta što ovo nije prava lutrija!");
+                        System.out.println("Broj pokušaja je: " + broj_pokusaja);
+                        return;
+                    }
+                    break;
+                default:
+                    System.out.println("Niste unijeli točan level pokušajte ponovno.");
+            }
+        }
+        while(uneseni_broj != tocan_broj0 || uneseni_broj != tocan_broj1 || uneseni_broj != tocan_broj2);
+
+    }
+}
